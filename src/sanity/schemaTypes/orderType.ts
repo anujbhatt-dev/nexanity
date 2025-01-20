@@ -69,6 +69,7 @@ export const orderType = defineType({
                                     name:"quantity",
                                     title:"Quantity purchased",
                                     type:"number",
+                                    validation: (Rule) => Rule.min(1).error("Quantity must be at least 1"),
                                 }
                             ),
                         ],

@@ -42,6 +42,22 @@ export const productType = defineType ({
             name: "image",
             title: "Image",
             type: "image",
+            options: { hotspot: true },
+            fields: [
+              {
+                name: "altText",
+                title: "Alt Text",
+                type: "string",
+                validation: (Rule) => Rule.required().error("Alt text is required"),
+              },
+            ],
+          }),
+          defineField({
+            name: "sku",
+            title: "SKU",
+            description:"Stock keeping unit for inventory",
+            type: "string",
+            validation: (Rule) => Rule.required().error("SKU is required"),
           }),
     ],
     preview:{
