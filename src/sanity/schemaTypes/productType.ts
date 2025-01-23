@@ -21,6 +21,12 @@ export const productType = defineType ({
             validation: (Rule) => Rule.required(),
         }),
         defineField({
+            name:"slug",
+            title:"Slug",
+            type:"slug",
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
             name:"categories",
             title:"Categories",
             type:"array",

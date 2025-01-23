@@ -149,6 +149,7 @@ export type Product = {
     _type: "image";
     _key: string;
   }>;
+  slug?: Slug;
   categories?: Array<{
     _ref: string;
     _type: "reference";
@@ -320,6 +321,7 @@ export type ALL_PRODUCT_QUERYResult = Array<{
     _type: "image";
     _key: string;
   }>;
+  slug?: Slug;
   categories?: Array<{
     _ref: string;
     _type: "reference";
