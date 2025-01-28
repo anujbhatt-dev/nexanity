@@ -15,12 +15,12 @@ export default function ProductsView({products,categories}:{products:Product[], 
 
         {/* Products */}
         <div>
-            <div>
+            <div className='my-6'>
                 <ProductGrid
                 products = {products}
                 />
-                <hr className='w-1/2 sm:w-3/4'/>
             </div>
+            <hr className='w-1/2 sm:w-3/4 m-auto'/>
         </div>
         
     </div>

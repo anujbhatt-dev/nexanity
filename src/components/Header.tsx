@@ -4,10 +4,15 @@ import Link from 'next/link';
 import React from 'react'
 import Form from "next/form"
 import { PackageIcon, TrolleyIcon } from '@sanity/icons';
+import useBasketStore from '../../store/store';
 
 export default function Header() {
 
   const {user} = useUser();
+
+  const itemCount = useBasketStore((state)=>
+    state.items.reduce((total,item)=>total+item.quantity , 0)
+  )
 
   console.log(user);
   
@@ -16,13 +21,13 @@ export default function Header() {
   return (
     <header className='flex flex-wrap justify-between items-center px-4 py-2'>
              {/* Top row */}
-            <div className='flex justify-between items-center px-4 py-2'>
+            <div className='flex justify-between items-center px-4 py-2 font-bold text-blue-500 text-[2rem]'>
               <Link href={"/"}>
-                shopr
+                sHoPr
               </Link>
             </div>
             <Form action={"/search"} 
-                className='w-full sm:w-auto sm:mx-4 mt-2 sm:mt-0  flex-grow'>
+                className='w-full sm:w-auto sm:mx-4 mt-2 sm:mt-0  flex-grow flex '>
                 <input 
                   type="text" name='query' placeholder='search for products'
                   className='
@@ -39,7 +44,10 @@ export default function Header() {
                     max-x-4xl                    
                   ' 
                 />
-            </Form>
+                <button className=' bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-r px-6' type='submit'>
+                          search
+                </button>
+               </Form>
 
 
             {/*  */}
@@ -51,6 +59,7 @@ export default function Header() {
                 <TrolleyIcon className='w-6 h-6'/>
                 {/* item count */}
 
+                <span className='absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs'>{itemCount}</span>
                 <span>My Basket</span>
               </Link>
 

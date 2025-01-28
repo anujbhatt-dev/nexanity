@@ -1,27 +1,20 @@
-import { Button } from "@/components/ui/button";
-import Header from "@/components/Header";
 import { getAllProduct } from "@/sanity/lib/products/getAllProducts";
 import ProductsView from "@/components/ProductsView";
 import { getAllCategories } from "@/sanity/lib/products/getAllCategories";
-import BlackFridaySale from "@/components/BlackFridaySale";
+
 
 export default async function Home() {
   const products = await getAllProduct();
   const categories = await getAllCategories();
   return (
-    <div className="" >
-         <Header/>
-         <BlackFridaySale/>         
-
-        {products &&
-          products.map(product=>(
-            <div key={product._id}>
+    <div className="" >                  
+        {products &&          
+            <div>
               <ProductsView products={products}
               categories = {categories}
               />
               
-            </div>
-          ))
+            </div>          
         }
     </div>
   );

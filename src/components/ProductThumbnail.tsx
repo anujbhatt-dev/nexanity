@@ -48,7 +48,7 @@ export default function ProductThumbnail({product}:{product:Product}) {
                     }
                 </p>
                 <p className='mt-2 text-lg font-bold text-gray-900'>
-                    Rs{product.price?.toFixed(2)}
+                    Rs {product.price?.toFixed(2)}
                 </p>
             </div>
         </Link>

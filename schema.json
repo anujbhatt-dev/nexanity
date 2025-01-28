@@ -367,7 +367,7 @@
         },
         "optional": true
       },
-      "discription": {
+      "description": {
         "type": "objectAttribute",
         "value": {
           "type": "array",
