@@ -6,13 +6,9 @@ import { useRouter } from 'next/navigation';
 import AddToBasketButton from '@/components/AddToBasketButton';
 import Image from 'next/image';
 import { imageUrl } from '@/lib/imageUrl';
+import { createCheckoutSession, Metadata } from '../../../../actions/createCheckoutSession';
 
-export type Metadata = {
-    orderNumber:string;
-    customerName:string,
-    customerEmail:string,
-    clerkUserId:string
-}
+
 
 function BasketPage() {
 const groupedItems = useBasketStore((state)=>state.getGroupedItems());
@@ -40,7 +36,7 @@ const [isLoading, setIsLoading] = useState(false)
   }
 
 
-  const handleCheckout =()=>{
+  const handleCheckout =async ()=>{
         if(!isSignedIn) return;
         setIsLoading(true);
         try {
@@ -49,6 +45,11 @@ const [isLoading, setIsLoading] = useState(false)
                 customerName : user?.fullName ?? "unknown",
                 customerEmail : user?.emailAddresses[0].emailAddress ?? "Unknown",
                 clerkUserId:user!.id
+            }
+            const checkoutUrl = await createCheckoutSession(groupedItems,metadata);
+
+            if(checkoutUrl){
+                window.location.href = checkoutUrl
             }
         } catch (error) {
             console.log("Error during Checkout ",error);
