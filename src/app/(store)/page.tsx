@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import { getAllProduct } from "@/sanity/lib/products/getAllProducts";
 import ProductsView from "@/components/ProductsView";
 import { getAllCategories } from "@/sanity/lib/products/getAllCategories";
+import BlackFridaySale from "@/components/BlackFridaySale";
 
 export default async function Home() {
   const products = await getAllProduct();
@@ -10,9 +11,7 @@ export default async function Home() {
   return (
     <div className="" >
          <Header/>
-         <Button>
-             click me
-         </Button>
+         <BlackFridaySale/>         
 
         {products &&
           products.map(product=>(

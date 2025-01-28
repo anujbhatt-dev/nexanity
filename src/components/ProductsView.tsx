@@ -7,9 +7,10 @@ export default function ProductsView({products,categories}:{products:Product[], 
   return (
     
     <div className='flex flex-col' >
+
         {/* category */}
         <div className='w-full sm:w-[200px]'>
-            <CategorSelectorComponent categories = { categories}/>
+            <CategorSelectorComponent categories={categories}/>
         </div>
 
         {/* Products */}
@@ -21,6 +22,7 @@ export default function ProductsView({products,categories}:{products:Product[], 
                 <hr className='w-1/2 sm:w-3/4'/>
             </div>
         </div>
+        
     </div>
   )
 }

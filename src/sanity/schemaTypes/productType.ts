@@ -25,6 +25,9 @@ export const productType = defineType ({
             title:"Slug",
             type:"slug",
             validation: (Rule) => Rule.required(),
+            options: {
+                source: 'title',
+              },
         }),
         defineField({
             name:"categories",

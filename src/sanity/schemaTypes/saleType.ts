@@ -19,7 +19,7 @@ export const saleType = defineType({
             {
                 name:"discription",
                 title:"Discription",
-                type:"number",
+                type:"blockContent",
                 validation: Rule=>Rule.required()
             }
         ),

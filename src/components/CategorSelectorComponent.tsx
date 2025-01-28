@@ -1,8 +1,13 @@
 import React from 'react'
 import { Category } from '../../sanity.types'
 
-export default function CategorSelectorComponent({categories}:{categories:Category[]}) {
+export default async function CategorSelectorComponent({categories}:{categories:Category[]}) {
+  
   return (
-    <div>CategorSelectorComponent</div>
+    <div className=''>
+        {categories.map((category)=>{
+          return <div>{category.title}</div>
+        })}
+    </div>
   )
 }
